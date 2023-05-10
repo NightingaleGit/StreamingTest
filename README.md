@@ -1,7 +1,7 @@
 # StreamingTest
 Simple web app with ReactJS + C# that is steaming data computed by AKKA.net thru gRPC
 ## **Setup**
-### Requerements
+### Requirements
 * docker
 * docker-compose
 
@@ -13,8 +13,8 @@ Simple web app with ReactJS + C# that is steaming data computed by AKKA.net thru
 
 ## **Using**
 * Press "Сonnect" button. This will start a stream on server and then listen to it.
-* On "Formulas" page you can add or edit functions that applies to original point.
+* On "Formulas" page you can add or edit functions that applies to original point. Supported any functions from x, like `x+1`, `4*x^2+3*x-2`, `sin(x)`. For ref: https://mathparser.org/. 
 
 ## **Troubleshooting**
-Test on Docker Desktop 4.19.0, another version not tested.
-Ensure that nothing already started on ports 80,8080 and 9901
+Tested on Docker Desktop 4.19.0, another version not tested.
+Ensure that nothing already started on ports `:80`, `:8080` and `:9901`
