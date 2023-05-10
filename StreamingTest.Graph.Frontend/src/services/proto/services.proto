@@ -1,0 +1,24 @@
+syntax = "proto3";
+package StreamingTest.Graph.Backend.Ports.gRPC;
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+message CalculatedPoint {
+   double Value = 1;
+   int32 FormulaId = 2;
+}
+message CalculatedPointsResult {
+   Point OriginalPoint = 1;
+   repeated CalculatedPoint CalculatedPoints = 2;
+}
+message Point {
+   .google.protobuf.Timestamp PointTime = 1;
+   double Value = 2;
+}
+message StreamParam {
+   string StreamId = 1;
+}
+service PointsService {
+   rpc PushPoints (StreamParam) returns (.google.protobuf.Empty);
+   rpc ReceivePoints (StreamParam) returns (stream CalculatedPointsResult);
+}

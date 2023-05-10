@@ -1,0 +1,26 @@
+volumes:
+  data:
+
+
+services:
+  envoy:
+    build:
+      dockerfile: Dockerfile
+      context: "./Envoy/"
+    ports:
+      - 8081:8081
+      - 9901:9901
+  backend:
+    build:
+      dockerfile: ./StreamingTest.Graph.Backend.Host/Dockerfile
+      context: ./StreamingTest.Graph.Backend/
+    ports:
+      - 8080:8080
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+  frontend:
+    build:
+      dockerfile: Dockerfile
+      context: "./StreamingTest.Graph.Frontend/"
+    ports:
+      - 80:80
